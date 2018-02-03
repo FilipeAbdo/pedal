@@ -1,4 +1,4 @@
-import Adafruit_BBIO.GPIO as GPIO
+import Adafruit_GPIO.GPIO as GPIO
 import time
 import usb.core
 import usb.util
