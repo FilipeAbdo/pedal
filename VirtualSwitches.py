@@ -83,7 +83,7 @@ reverb_btn = Button(SwitchesWindow, text="Reverb", width=6, command=reverbPresse
 fuzz_btn = Button(SwitchesWindow, text="FUZZ", width=6, command=fuzzPressed)
 
 bntOffset = 320/4.5
-bntStart = 10
+bntStart = 5
 btnVPosition = 122
 lbStart = bntStart + 16
 lbOffset = bntOffset
