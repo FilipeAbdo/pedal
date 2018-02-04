@@ -85,7 +85,7 @@ fuzz_btn = Button(SwitchesWindow, text="FUZZ", width=6, command=fuzzPressed)
 bntOffset = 480/5
 bntStart = 10
 btnVPosition = 122
-lbStart = bntStart + 32
+lbStart = bntStart + 30
 lbOffset = bntOffset
 lbVPosition = 95
 od_lb.place(x=lbStart+0*lbOffset, y=lbVPosition)
