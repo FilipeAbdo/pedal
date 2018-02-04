@@ -36,10 +36,9 @@ class DeviceConnection:
 
             if dev is not None:
                 tries = 0
-            else:
-                tries = 20
 
-            while config_success == 0 and tries < 20:
+
+            while config_success == 0 and tries < 10:
                     try:
                             dev.set_configuration()
                             config_success = 1
@@ -47,7 +46,7 @@ class DeviceConnection:
                             config_success = 0
                             print "Trying to configure device" +  str(tries)
                             tries += 1
-                            time.sleep(0.1)
+                            time.sleep(0.5)
 
             if dev is not None:
                 cfg = dev.get_active_configuration()
