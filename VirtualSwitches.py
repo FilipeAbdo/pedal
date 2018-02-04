@@ -64,6 +64,14 @@ def fuzzPressed():
 
 def connectPressed():
     print("Connection Requested")
+    connection.connect()
+    if connection.connectionStatus:
+        connectionStatus_val["text"] = "Connected"
+        connectionStatus_val["bg"] = "Green"
+    else:
+        connectionStatus_val["text"] = "Connection Fail"
+        connectionStatus_val["bg"] = "red"
+
 
 odStatus = False
 cmpStatus = False
