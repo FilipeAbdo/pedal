@@ -34,6 +34,10 @@ class DeviceConnection:
 
             config_success = 0
 
+            if dev is not None:
+                tries = 0
+                print("Device active configuration: " + dev.get_active_configuration())
+
             reattech = False
             if dev.is_kernel_driver_active(0):
                 print("Kernel driver Active!")
@@ -41,8 +45,6 @@ class DeviceConnection:
                 dev.detach_kernel_driver(0)
                 print("Kernel driver detached!")
 
-            if dev is not None:
-                tries = 0
 
             while config_success == 0 and tries < 10 and not dev.is_kernel_driver_active(0):
                     try:
