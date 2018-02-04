@@ -82,10 +82,10 @@ delay_btn = Button(SwitchesWindow, text="Delay", width=6, command=delayPressed)
 reverb_btn = Button(SwitchesWindow, text="Reverb", width=6, command=reverbPressed)
 fuzz_btn = Button(SwitchesWindow, text="FUZZ", width=6, command=fuzzPressed)
 
-bntOffset = 320/4.5
-bntStart = 5
+bntOffset = 480/5
+bntStart = 10
 btnVPosition = 122
-lbStart = bntStart + 16
+lbStart = bntStart + 32
 lbOffset = bntOffset
 lbVPosition = 95
 od_lb.place(x=lbStart+0*lbOffset, y=lbVPosition)
