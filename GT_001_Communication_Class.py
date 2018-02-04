@@ -37,9 +37,9 @@ class DeviceConnection:
             if dev is not None:
                 tries = 0
             else:
-                tries = 101
+                tries = 20
 
-            while config_success == 0 and tries < 100:
+            while config_success == 0 and tries < 20:
                     try:
                             dev.set_configuration()
                             config_success = 1
