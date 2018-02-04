@@ -36,7 +36,7 @@ class DeviceConnection:
 
             if dev is not None:
                 tries = 0
-                print("Device active configuration: " + dev.get_active_configuration())
+                print("Device active configuration: " + str(dev.get_active_configuration()))
 
             reattech = False
             if dev.is_kernel_driver_active(0):
