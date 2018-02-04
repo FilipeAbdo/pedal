@@ -4,7 +4,7 @@ SwitchesWindow = Tk()
 SwitchesWindow.title("Virtual Pedal")
 
 # geometry syntax: WidthxHeight+Left+Top
-SwitchesWindow.geometry("360x240+0+0")
+SwitchesWindow.geometry("480x300+0+0")
 
 
 def odPressed():
