@@ -58,9 +58,9 @@ class DeviceConnection:
             #                 time.sleep(0.5)
             #
             # if config_success:
-            cfg = dev.get_active_configuration()
+            #cfg = dev.get_active_configuration()
             intf = cfg[(3, 1)]
-            usb.util.claim_interface(dev, intf)
+            #usb.util.claim_interface(dev, intf)
             self.dev = dev
             self.cfg = cfg
             self.intf = intf
