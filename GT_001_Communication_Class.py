@@ -48,7 +48,7 @@ class DeviceConnection:
                     try:
                             dev.set_configuration()
                             config_success = 1
-                    except Exception as ex:
+                    except usb.core.USBError as ex:
                             config_success = 0
                             print("Error: " + ex.message)
                             print "Trying to configure device; Try: " + str(tries)
