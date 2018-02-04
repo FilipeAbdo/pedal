@@ -38,32 +38,32 @@ class DeviceConnection:
                 tries = 0
                 print("Device active configuration: " + str(dev.get_active_configuration()))
 
-            reattech = False
-            if dev.is_kernel_driver_active(0):
-                print("Kernel driver Active!")
-                reattech = True
-                dev.detach_kernel_driver(0)
-                print("Kernel driver detached!")
-
-
-            while config_success == 0 and tries < 10 and not dev.is_kernel_driver_active(0):
-                    try:
-                            dev.set_configuration()
-                            config_success = 1
-                    except usb.core.USBError as ex:
-                            config_success = 0
-                            print("Error: " + ex.message)
-                            print "Trying to configure device; Try: " + str(tries)
-                            tries += 1
-                            time.sleep(0.5)
-
-            if config_success:
-                cfg = dev.get_active_configuration()
-                intf = cfg[(3, 1)]
-                usb.util.claim_interface(dev, intf)
-                self.dev = dev
-                self.cfg = cfg
-                self.intf = intf
+            # reattech = False
+            # if dev.is_kernel_driver_active(0):
+            #     print("Kernel driver Active!")
+            #     reattech = True
+            #     dev.detach_kernel_driver(0)
+            #     print("Kernel driver detached!")
+            #
+            #
+            # while config_success == 0 and tries < 10 and not dev.is_kernel_driver_active(0):
+            #         try:
+            #                 dev.set_configuration()
+            #                 config_success = 1
+            #         except usb.core.USBError as ex:
+            #                 config_success = 0
+            #                 print("Error: " + ex.message)
+            #                 print "Trying to configure device; Try: " + str(tries)
+            #                 tries += 1
+            #                 time.sleep(0.5)
+            #
+            # if config_success:
+            cfg = dev.get_active_configuration()
+            intf = cfg[(3, 1)]
+            usb.util.claim_interface(dev, intf)
+            self.dev = dev
+            self.cfg = cfg
+            self.intf = intf
 
             self.connectionStatus = config_success
 
