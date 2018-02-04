@@ -34,21 +34,25 @@ class DeviceConnection:
 
             config_success = 0
 
+            reattech = False
+            if dev.is_kernel_driver_active(0):
+                reattech = True
+                dev.detach_kernel_driver(0)
+
             if dev is not None:
                 tries = 0
 
-
-            while config_success == 0 and tries < 10:
+            while config_success == 0 and tries < 10 and not dev.is_kernel_driver_active(0):
                     try:
                             dev.set_configuration()
                             config_success = 1
                     except:
                             config_success = 0
-                            print "Trying to configure device" +  str(tries)
+                            print "Trying to configure device; Try: " + str(tries)
                             tries += 1
                             time.sleep(0.5)
 
-            if dev is not None:
+            if config_success:
                 cfg = dev.get_active_configuration()
                 intf = cfg[(3, 1)]
                 usb.util.claim_interface(dev, intf)
