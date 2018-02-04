@@ -50,7 +50,7 @@ class DeviceConnection:
                             config_success = 1
                     except Exception as ex:
                             config_success = 0
-                            print("Error: " + ex.message)
+                            print("Error: " + ex)
                             print "Trying to configure device; Try: " + str(tries)
                             tries += 1
                             time.sleep(0.5)
