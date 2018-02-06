@@ -58,15 +58,15 @@ class DeviceConnection:
             #                 time.sleep(0.5)
             #
             # if config_success:
-            #cfg = dev.get_active_configuration()
-            intf = dev[0][(3,0)][0]
+            cfg = dev.get_active_configuration()
+            intf = cfg[(3,1)]
             print(intf)
             try:
                 self.getEp_OUT()
                 self.getEp_IN()
                 config_success = 1
                 print("\nEndpoint OUT: " + str(self.ep_out))
-                print("\nEndpoint OUT: " + str(self.ep_out) + "\n")
+                print("\nEndpoint IN: " + str(self.ep_in) + "\n")
             except usb.USBError as ex:
                 config_success = 0
                 print("Fail to get Endpoints: \n" + ex.message)
