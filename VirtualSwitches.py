@@ -65,15 +65,6 @@ def fuzzPressed():
 def connectPressed():
     print("Connection Requested")
     connection.connect()
-    try:
-        connection.getEp_out()
-        connection.getEp_IN()
-        print("\nEndpoint OUT: " + str(connection.ep_out))
-        print("\nEndpoint OUT: " + str(connection.ep_out) + "\n")
-    except usb.USBError as ex:
-        print("Fail to get Endpoints: \n" + ex.message)
-        connection.connectionStatus = 0
-
     if connection.connectionStatus:
         connectionStatus_val["text"] = "Connected"
         connectionStatus_val["bg"] = "Green"
