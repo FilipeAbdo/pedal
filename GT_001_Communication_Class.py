@@ -79,15 +79,6 @@ class DeviceConnection:
 
             intf = dev[0][(3,0)][0]
             print(intf)
-            try:
-                self.getEp_out()
-                self.getEp_IN()
-                config_success = 1
-                print("\nEndpoint OUT: " + str(self.ep_out))
-                print("\nEndpoint OUT: " + str(self.ep_out) + "\n")
-            except usb.USBError as ex:
-                config_success = 0
-                print("Fail to get Endpoints: \n" + ex.message)
 
             #usb.util.claim_interface(dev, intf)
             self.dev = dev
