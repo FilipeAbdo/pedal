@@ -11,7 +11,7 @@ connection = DeviceConnection()
 def odPressed():
     print("OD Pressed")
     global odStatus
-    if odStatus == True:
+    if odStatus:
         odStatus = False
         od_lb.configure(background="green")
     else:
@@ -22,7 +22,7 @@ def odPressed():
 def cmpPressed():
     print("CMP Pressed")
     global cmpStatus
-    if cmpStatus == True:
+    if cmpStatus:
         cmpStatus = False
         cmp_lb.configure(background="green")
     else:
@@ -33,7 +33,7 @@ def cmpPressed():
 def delayPressed():
     print("Delay Pressed")
     global delayStatus
-    if delayStatus == True:
+    if delayStatus:
         delayStatus = False
         delay_lb.configure(background="green")
     else:
@@ -44,7 +44,7 @@ def delayPressed():
 def reverbPressed():
     print("Reverb Pressed")
     global reverbStatus
-    if reverbStatus == True:
+    if reverbStatus:
         reverbStatus = False
         reverb_lb.configure(background="green")
     else:
@@ -55,12 +55,13 @@ def reverbPressed():
 def fuzzPressed():
     print("FUZZ Pressed")
     global fuzzStatus
-    if fuzzStatus == True:
+    if fuzzStatus:
         fuzzStatus = False
         fuzz_lb.configure(background="green")
     else:
         fuzzStatus = True
         fuzz_lb.configure(bg="red")
+
 
 def connectPressed():
     print("Connection Requested")
