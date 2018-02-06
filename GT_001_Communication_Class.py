@@ -59,13 +59,21 @@ class DeviceConnection:
             #
             # if config_success:
             #cfg = dev.get_active_configuration()
-            intf = dev[0][(3, 1)][0]
+            intf = dev[0][3][0]
             print(intf)
-            config_success = 1
+            try:
+                self.getEp_out()
+                self.getEp_IN()
+                config_success = 1
+            except usb.USBError as ex:
+                config_success = 0
+                print("Fail to get Endpoints: \n" + ex.message)
+
             #usb.util.claim_interface(dev, intf)
             self.dev = dev
             self.cfg = cfg
             self.intf = intf
+
 
             self.connectionStatus = config_success
 
