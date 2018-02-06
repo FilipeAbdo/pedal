@@ -17,6 +17,23 @@ class DeviceConnection:
         self.connectionStatus = False
 
     #region Connection functions
+
+    def getEp_OUT(self):
+            self.ep_out = usb.util.find_descriptor(
+                    self.intf,
+                    custom_match= \
+                            lambda e: \
+                                    usb.util.endpoint_direction(e.bEndpointAddress) == \
+                                    usb.util.ENDPOINT_OUT)
+
+    def getEp_IN(self):
+            self.ep_in = usb.util.find_descriptor(
+                    self.intf,
+                    custom_match= \
+                            lambda e: \
+                                    usb.util.endpoint_direction(e.bEndpointAddress) == \
+                                    usb.util.ENDPOINT_IN)
+
     def connect(self):
             dev = usb.core.find(idVendor=self.idVendor, idProduct=self.idProduct)
 
@@ -59,6 +76,7 @@ class DeviceConnection:
             #
             # if config_success:
             #cfg = dev.get_active_configuration()
+
             intf = dev[0][(3,0)][0]
             print(intf)
             try:
@@ -79,22 +97,7 @@ class DeviceConnection:
 
             self.connectionStatus = config_success
 
-    def getEp_OUT(self):
-            self.ep_out = usb.util.find_descriptor(
-                    self.intf,
-                    custom_match= \
-                            lambda e: \
-                                    usb.util.endpoint_direction(e.bEndpointAddress) == \
-                                    usb.util.ENDPOINT_OUT)
 
-
-    def getEp_IN(self):
-            self.ep_in = usb.util.find_descriptor(
-                    self.intf,
-                    custom_match= \
-                            lambda e: \
-                                    usb.util.endpoint_direction(e.bEndpointAddress) == \
-                                    usb.util.ENDPOINT_IN)
 
     #endregion
 
