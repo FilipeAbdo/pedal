@@ -65,7 +65,7 @@ class DeviceConnection:
                 self.getEp_OUT()
                 self.getEp_IN()
                 config_success = 1
-                print("\nEndpoint OUT: " + str(self.ep_out))
+                print("\nEndpoint OUT: " + self.ep_out)
                 print("\nEndpoint IN: " + str(self.ep_in) + "\n")
             except usb.USBError as ex:
                 config_success = 0
