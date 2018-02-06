@@ -60,6 +60,8 @@ class DeviceConnection:
             # if config_success:
             #cfg = dev.get_active_configuration()
             intf = dev[0][(3, 1)][0]
+            print(intf)
+            config_success = 1
             #usb.util.claim_interface(dev, intf)
             self.dev = dev
             self.cfg = cfg
