@@ -1,5 +1,7 @@
 from Tkinter import *
 from GT_001_Communication_Class import *
+from EffectsManager import *
+from CommandsManager import *
 
 SwitchesWindow = Tk()
 SwitchesWindow.title("Virtual Pedal")
@@ -7,6 +9,8 @@ SwitchesWindow.title("Virtual Pedal")
 # geometry syntax: WidthxHeight+Left+Top
 SwitchesWindow.geometry("480x300+0+0")
 connection = DeviceConnection()
+effectsManager = EffectsDict()
+commandManager = CommandsManager()
 
 def odPressed():
     print("OD Pressed")
@@ -14,9 +18,14 @@ def odPressed():
     if odStatus:
         odStatus = False
         od_lb.configure(background="green")
+        effectsManager.effectU003.EffectSetting.OD.Value = 0x7F
     else:
         odStatus = True
         od_lb.configure(bg="red")
+        effectsManager.effectU003.EffectSetting.OD.Value = 0x00
+
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.OD.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.OD.Value))
 
 
 def cmpPressed():
