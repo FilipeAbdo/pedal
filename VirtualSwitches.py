@@ -24,8 +24,7 @@ def odPressed():
         od_lb.configure(bg="red")
         effectsManager.effectU003.EffectSetting.OD.Value = 0x7F
 
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.OD.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.OD.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.OD))
 
 
 def cmpPressed():
@@ -40,8 +39,7 @@ def cmpPressed():
         cmp_lb.configure(bg="red")
         effectsManager.effectU003.EffectSetting.CMP.Value = 0x7F
 
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.CMP.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.CMP.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.CMP))
 
 def delayPressed():
     print("Delay Pressed")
@@ -55,8 +53,7 @@ def delayPressed():
         delay_lb.configure(bg="red")
         effectsManager.effectU003.EffectSetting.Delay.Value = 0x7F
 
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Delay.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.Delay.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Delay))
 
 def reverbPressed():
     print("Reverb Pressed")
@@ -70,8 +67,7 @@ def reverbPressed():
         reverb_lb.configure(bg="red")
         effectsManager.effectU003.EffectSetting.Reverb.Value = 0x7F
 
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Reverb.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.Reverb.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Reverb))
 
 def fuzzPressed():
     print("FUZZ Pressed")
@@ -85,8 +81,7 @@ def fuzzPressed():
         fuzz_lb.configure(bg="red")
         effectsManager.effectU003.EffectSetting.Fuzz.Value = 0x7F
 
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Fuzz.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.Fuzz.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Fuzz))
 
 def connectPressed():
     print("Connection Requested")
@@ -98,16 +93,11 @@ def connectPressed():
         connectionStatus_val["text"] = "Connection Fail"
         connectionStatus_val["bg"] = "red"
 
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.OD.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.OD.Value))
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.CMP.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.CMP.Value))
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Delay.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.Delay.Value))
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Reverb.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.Reverb.Value))
-    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Fuzz.CCNumber,
-                                                         effectsManager.effectU003.EffectSetting.Fuzz.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.OD))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.CMP))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Delay))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Reverb))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Fuzz))
 
 odStatus = False
 cmpStatus = False
