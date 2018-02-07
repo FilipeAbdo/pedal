@@ -8,7 +8,7 @@ class CommandsManager:
     def getCC_Command(self, effect):
         # assert isinstance(effect, EffectsDict)
         command = self.CCCommand
-
+        print(effect)
         command[2] = effect.CCNumber
         command[3] = effect.Value
 
