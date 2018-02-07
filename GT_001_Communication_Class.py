@@ -39,14 +39,15 @@ class DeviceConnection:
                 # print("Device active configuration: " + str(dev.get_active_configuration()))
 
             reattech = False
-            if dev.is_kernel_driver_active(0):
+            dev.reset()
+            print("Device Reseted")
+            if dev.is_kernel_driver_active(3):
                 print("Kernel driver Active!")
                 reattech = True
-                dev.detach_kernel_driver(0)
+                dev.detach_kernel_driver(3)
                 print("Kernel driver detached!")
             else:
-                dev.reset()
-                print("Device Reseted")
+                print("Device kernel driver status: " + str(dev.is_kernel_driver_active(3)))
 
             cfg = []
             # while config_success == 0 and tries < 10 and not dev.is_kernel_driver_active(0):
