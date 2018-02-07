@@ -98,6 +98,17 @@ def connectPressed():
         connectionStatus_val["text"] = "Connection Fail"
         connectionStatus_val["bg"] = "red"
 
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.OD.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.OD.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.CMP.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.CMP.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Delay.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.Delay.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Reverb.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.Reverb.Value))
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Fuzz.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.Fuzz.Value))
+
 odStatus = False
 cmpStatus = False
 delayStatus = False
