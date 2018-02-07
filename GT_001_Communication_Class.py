@@ -88,7 +88,7 @@ class DeviceConnection:
             #                 lambda e: \
             #                         usb.util.endpoint_direction(e.bEndpointAddress) == \
             #                         usb.util.ENDPOINT_OUT)
-            self.ep_out = self.dev[0][(3,0)][0]
+            self.ep_out = self.intf[0]
 
     def getEp_IN(self):
             # self.ep_in = usb.util.find_descriptor(
@@ -97,7 +97,7 @@ class DeviceConnection:
             #                 lambda e: \
             #                         usb.util.endpoint_direction(e.bEndpointAddress) == \
             #                         usb.util.ENDPOINT_IN)
-            self.ep_in = self.dev[0][(3,0)][1]
+            self.ep_in = self.intf[1]
 
 
     #endregion
