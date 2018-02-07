@@ -44,6 +44,8 @@ class DeviceConnection:
                 reattech = True
                 dev.detach_kernel_driver(0)
                 print("Kernel driver detached!")
+            else:
+                dev.reset()
 
             cfg = []
             # while config_success == 0 and tries < 10 and not dev.is_kernel_driver_active(0):
