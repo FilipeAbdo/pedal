@@ -46,6 +46,7 @@ class DeviceConnection:
                 print("Kernel driver detached!")
             else:
                 dev.reset()
+                print("Device Reseted")
 
             cfg = []
             # while config_success == 0 and tries < 10 and not dev.is_kernel_driver_active(0):
@@ -81,20 +82,23 @@ class DeviceConnection:
             self.connectionStatus = config_success
 
     def getEp_OUT(self):
-            self.ep_out = usb.util.find_descriptor(
-                    self.intf,
-                    custom_match= \
-                            lambda e: \
-                                    usb.util.endpoint_direction(e.bEndpointAddress) == \
-                                    usb.util.ENDPOINT_OUT)
+            # self.ep_out = usb.util.find_descriptor(
+            #         self.intf,
+            #         custom_match= \
+            #                 lambda e: \
+            #                         usb.util.endpoint_direction(e.bEndpointAddress) == \
+            #                         usb.util.ENDPOINT_OUT)
+            self.ep_out = self.dev[0][(3,1)][0]
 
     def getEp_IN(self):
-            self.ep_in = usb.util.find_descriptor(
-                    self.intf,
-                    custom_match= \
-                            lambda e: \
-                                    usb.util.endpoint_direction(e.bEndpointAddress) == \
-                                    usb.util.ENDPOINT_IN)
+            # self.ep_in = usb.util.find_descriptor(
+            #         self.intf,
+            #         custom_match= \
+            #                 lambda e: \
+            #                         usb.util.endpoint_direction(e.bEndpointAddress) == \
+            #                         usb.util.ENDPOINT_IN)
+            self.ep_in = self.dev[0][(3,1)][1]
+
 
     #endregion
 
