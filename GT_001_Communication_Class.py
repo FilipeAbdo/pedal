@@ -108,6 +108,6 @@ class DeviceConnection:
     #region Commmunication functions
 
     def writeCommand(self, command):
-        self.dev.write(0x3, command)
+        self.ep_out.write(command)
 
     #endregion
