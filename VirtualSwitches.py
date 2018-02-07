@@ -18,11 +18,11 @@ def odPressed():
     if odStatus:
         odStatus = False
         od_lb.configure(background="green")
-        effectsManager.effectU003.EffectSetting.OD.Value = 0x7F
+        effectsManager.effectU003.EffectSetting.OD.Value = 0x00
     else:
         odStatus = True
         od_lb.configure(bg="red")
-        effectsManager.effectU003.EffectSetting.OD.Value = 0x00
+        effectsManager.effectU003.EffectSetting.OD.Value = 0x7F
 
     connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.OD.CCNumber,
                                                          effectsManager.effectU003.EffectSetting.OD.Value))
@@ -34,10 +34,14 @@ def cmpPressed():
     if cmpStatus:
         cmpStatus = False
         cmp_lb.configure(background="green")
+        effectsManager.effectU003.EffectSetting.CMP.Value = 0x00
     else:
         cmpStatus = True
         cmp_lb.configure(bg="red")
+        effectsManager.effectU003.EffectSetting.CMP.Value = 0x7F
 
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.CMP.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.CMP.Value))
 
 def delayPressed():
     print("Delay Pressed")
@@ -45,10 +49,14 @@ def delayPressed():
     if delayStatus:
         delayStatus = False
         delay_lb.configure(background="green")
+        effectsManager.effectU003.EffectSetting.Delay.Value = 0x00
     else:
         delayStatus = True
         delay_lb.configure(bg="red")
+        effectsManager.effectU003.EffectSetting.Delay.Value = 0x7F
 
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Delay.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.Delay.Value))
 
 def reverbPressed():
     print("Reverb Pressed")
@@ -56,10 +64,14 @@ def reverbPressed():
     if reverbStatus:
         reverbStatus = False
         reverb_lb.configure(background="green")
+        effectsManager.effectU003.EffectSetting.Reverb.Value = 0x00
     else:
         reverbStatus = True
         reverb_lb.configure(bg="red")
+        effectsManager.effectU003.EffectSetting.Reverb.Value = 0x7F
 
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Reverb.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.Reverb.Value))
 
 def fuzzPressed():
     print("FUZZ Pressed")
@@ -67,10 +79,14 @@ def fuzzPressed():
     if fuzzStatus:
         fuzzStatus = False
         fuzz_lb.configure(background="green")
+        effectsManager.effectU003.EffectSetting.Fuzz.Value = 0x00
     else:
         fuzzStatus = True
         fuzz_lb.configure(bg="red")
+        effectsManager.effectU003.EffectSetting.Fuzz.Value = 0x7F
 
+    connection.writeCommand(commandManager.getCC_Command(effectsManager.effectU003.EffectSetting.Fuzz.CCNumber,
+                                                         effectsManager.effectU003.EffectSetting.Fuzz.Value))
 
 def connectPressed():
     print("Connection Requested")
@@ -81,7 +97,6 @@ def connectPressed():
     else:
         connectionStatus_val["text"] = "Connection Fail"
         connectionStatus_val["bg"] = "red"
-
 
 odStatus = False
 cmpStatus = False
