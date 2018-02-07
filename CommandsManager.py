@@ -6,7 +6,7 @@ class CommandsManager:
         self.PC_Command = [0x2C, 0xC0, 0x00, 0x00]  # 0x2B, 0xB0, CC#n (Change Control Number) , VV (Value)
 
     def getCC_Command(self, effect):
-        assert isinstance(effect, EffectsDict)
+        # assert isinstance(effect, EffectsDict)
         command = self.CCCommand
 
         command[2] = effect.CCNumber
